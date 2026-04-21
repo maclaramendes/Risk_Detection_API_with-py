@@ -7,6 +7,7 @@ Simple API for transaction risk analysis, built with FastAPI.
 * Health check endpoint
 * Transaction analysis
 * Basic fraud detection rules
+* TDD (Test-Driven Development) applied
 
 ## Technologies
 
@@ -14,6 +15,7 @@ Simple API for transaction risk analysis, built with FastAPI.
 * FastAPI
 * Uvicorn
 * Docker
+* Pytest
 
 ## How to run
 
@@ -23,6 +25,21 @@ source venv/bin/activate
 pip install -r requirements.txt
 uvicorn app.main:app --reload
 ```
+
+## Run tests (TDD)
+
+```bash
+pytest -v
+```
+
+### Covered test cases
+
+* `/health` endpoint returns 200
+* Transaction approved for low risk
+* High amount transactions are flagged
+* Country mismatch adds risk reason
+* Odd hour adds risk reason
+* Invalid hour returns `422`
 
 ## Run with Docker
 
